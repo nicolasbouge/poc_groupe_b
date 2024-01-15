@@ -1,0 +1,40 @@
+
+CREATE TABLE IF NOT EXISTS Glossary
+(
+    id_glossary INTEGER primary key autoincrement not null ,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Context
+(
+    id_context INTEGER primary key autoincrement not null ,
+    label TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Word
+(
+    id_word INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    id_glossary INTEGER NOT NULL,
+    label TEXT NOT NULL,
+    definition TEXT,
+    context TEXT,
+    synonym TEXT,
+    antonym TEXT,
+    link_to TEXT,
+    FOREIGN KEY (id_glossary) REFERENCES Glossary(id_glossary),
+    FOREIGN KEY (context) REFERENCES Context(id_context)
+);
+
+CREATE TABLE IF NOT EXISTS Project
+(
+    id_project INTEGER primary key autoincrement not null ,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Path
+(
+    id_path INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    id_project INTEGER NOT NULL,
+    path TEXT NOT NULL,
+    FOREIGN KEY (id_project) REFERENCES Project(id_project)
+);

@@ -1,0 +1,223 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:44), pid=22096, tid=8952
+#
+# JRE version:  (21.0.1+12) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.1+12-29, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\lib\idea_rt.jar=53886:C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 MainViewKt
+
+Host: Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.2546)
+Time: Wed Dec  6 14:33:18 2023 Paris, Madrid elapsed time: 0.026118 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000028e0e5aef20):  JavaThread "Unknown thread" [_thread_in_vm, id=8952, stack(0x0000009042600000,0x0000009042700000) (1024K)]
+
+Stack: [0x0000009042600000,0x0000009042700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6c9029]
+V  [jvm.dll+0x854b81]
+V  [jvm.dll+0x856e5e]
+V  [jvm.dll+0x857543]
+V  [jvm.dll+0x280c06]
+V  [jvm.dll+0xbea87]
+V  [jvm.dll+0x331715]
+V  [jvm.dll+0x329d61]
+V  [jvm.dll+0x81d179]
+V  [jvm.dll+0x3bb4f1]
+V  [jvm.dll+0x805ae8]
+V  [jvm.dll+0x44effe]
+V  [jvm.dll+0x450901]
+C  [jli.dll+0x52a3]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17614]
+C  [ntdll.dll+0x526a1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff8658c9b88, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x0000028e0e5e6b70 WorkerThread "GC Thread#0"                     [id=3828, stack(0x0000009042700000,0x0000009042800000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff8650362a0]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ff86593a6f8] Heap_lock - owner thread: 0x0000028e0e5aef20
+
+Heap address: 0x00000000c2200000, size: 990 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff865421be9]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.018 Loaded shared library C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff64e1e0000 - 0x00007ff64e1ee000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\java.exe
+0x00007ff8b4410000 - 0x00007ff8b4608000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ff8b2f30000 - 0x00007ff8b2fef000 	C:\windows\System32\KERNEL32.DLL
+0x00007ff8b20b0000 - 0x00007ff8b2382000 	C:\windows\System32\KERNELBASE.dll
+0x00007ff8b1d80000 - 0x00007ff8b1e80000 	C:\windows\System32\ucrtbase.dll
+0x00007ff89d1e0000 - 0x00007ff89d1fb000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\VCRUNTIME140.dll
+0x00007ff897b60000 - 0x00007ff897b78000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\jli.dll
+0x00007ff8b2c50000 - 0x00007ff8b2df1000 	C:\windows\System32\USER32.dll
+0x00007ff8b1d50000 - 0x00007ff8b1d72000 	C:\windows\System32\win32u.dll
+0x00007ff89e670000 - 0x00007ff89e90a000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ff8b2c00000 - 0x00007ff8b2c2b000 	C:\windows\System32\GDI32.dll
+0x00007ff8b3f90000 - 0x00007ff8b402e000 	C:\windows\System32\msvcrt.dll
+0x00007ff8b1e80000 - 0x00007ff8b1f8f000 	C:\windows\System32\gdi32full.dll
+0x00007ff8b1cb0000 - 0x00007ff8b1d4d000 	C:\windows\System32\msvcp_win.dll
+0x00007ff8b41b0000 - 0x00007ff8b41e2000 	C:\windows\System32\IMM32.DLL
+0x00007ff8a10a0000 - 0x00007ff8a10ac000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\vcruntime140_1.dll
+0x00007ff8906e0000 - 0x00007ff89076e000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\msvcp140.dll
+0x00007ff864d00000 - 0x00007ff865a15000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\server\jvm.dll
+0x00007ff8b36d0000 - 0x00007ff8b377e000 	C:\windows\System32\ADVAPI32.dll
+0x00007ff8b4030000 - 0x00007ff8b40cc000 	C:\windows\System32\sechost.dll
+0x00007ff8b2e00000 - 0x00007ff8b2f25000 	C:\windows\System32\RPCRT4.dll
+0x00007ff8b3660000 - 0x00007ff8b36cb000 	C:\windows\System32\WS2_32.dll
+0x00007ff8b10d0000 - 0x00007ff8b111b000 	C:\windows\SYSTEM32\POWRPROF.dll
+0x00007ff89d840000 - 0x00007ff89d867000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ff8a07d0000 - 0x00007ff8a07da000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007ff8b0f40000 - 0x00007ff8b0f52000 	C:\windows\SYSTEM32\UMPDC.dll
+0x00007ff8b0350000 - 0x00007ff8b0362000 	C:\windows\SYSTEM32\kernel.appcore.dll
+0x00007ff89d1d0000 - 0x00007ff89d1da000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\jimage.dll
+0x00007ff8af8b0000 - 0x00007ff8afa94000 	C:\windows\SYSTEM32\DBGHELP.DLL
+0x00007ff897f50000 - 0x00007ff897f85000 	C:\windows\SYSTEM32\dbgcore.DLL
+0x00007ff8b2390000 - 0x00007ff8b2412000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007ff897b40000 - 0x00007ff897b4f000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\instrument.dll
+0x00007ff897b20000 - 0x00007ff897b3f000 	C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\quenette1\.jdks\openjdk-21.0.1\bin;C:\windows\SYSTEM32;C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Users\quenette1\.jdks\openjdk-21.0.1\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\lib\idea_rt.jar=53886:C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: MainViewKt
+java_class_path (initial): C:\Users\quenette1\Desktop\travail\SAE POC\poc_sae_compose_groupeb\build\classes\kotlin\main;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.20\73576ddf378c5b4f1f6b449fe6b119b8183fc078\kotlin-stdlib-jdk8-1.8.20.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.xerial\sqlite-jdbc\3.43.2.2\2a8e3eb01c8591c187c95d55b5e7e34f863a62a8\sqlite-jdbc-3.43.2.2.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.foundation\foundation-desktop\1.4.1\3af50bcd26973491ed32b251d234fae55c0b3c97\foundation-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.animation\animation-desktop\1.4.1\1155347d9aa6281e0805cb5b9707ed7e89e345b1\animation-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.20\3aa51faf20aae8b31e1a4bc54f8370673d7b7df4\kotlin-stdlib-jdk7-1.8.20.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.20\e72fc5e03ec6c064c678a6bd0d955c88d55b0c4a\kotlin-stdlib-1.8.20.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.36\6c62681a2f655b49963a5983b8b0950a6120ae14\slf4j-api-1.7.36.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.desktop\desktop-jvm\1.4.1\922ebea5ab9e202ee66ab4f4f567a74184eddbc1\desktop-jvm-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.20\5eddaaf234c8c49d03eebeb6a14feb7f90faca71\kotlin-stdlib-common-1.8.20.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-desktop\1.4.1\5005c7404c035c267cac2ec8b9dd08ca65766a04\ui-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.skiko\skiko-awt\0.7.63\4da1aa9929b9cc7d10295db9d71aec62c34c7842\skiko-awt-0.7.63.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.runtime\runtime-desktop\1.4.1\b268d41542ceb3c8d5d101222c14330874c5d8e6\runtime-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.foundation\foundation-layout-desktop\1.4.1\24afb95a5aa95d3fd0b7379ad7555931ce739f0c\foundation-layout-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.animation\animation-core-desktop\1.4.1\44c90efd68332262293d06a2c07585cc7b9fa8b5\animation-core-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-geometry-desktop\1.4.1\81ea1ab414ba9926972708e9f4ca7ac499cd9137\ui-geometry-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.material\material-desktop\1.4.1\f478f814ee2fb95aba5a206e48c33b912cc66ff1\material-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-tooling-preview-desktop\1.4.1\16e8e3a0dd0d52b5e4877a54bc345668ba23428d\ui-tooling-preview-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-text-desktop\1.4.1\d8c913f93cf15ebd065996473e228c5353b0d94d\ui-text-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-graphics-desktop\1.4.1\3b05e5c92bb6a4e92266359905c7e0866fdcc3ea\ui-graphics-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.runtime\runtime-saveable-desktop\1.4.1\2bb14fd8fe4ab551a04330a4431187de2ecb1c2a\runtime-saveable-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-unit-desktop\1.4.1\ce79e803d4f0b33631c958f64ff36a7010580d16\ui-unit-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.6.4\2c997cd1c0ef33f3e751d3831929aeff1390cb30\kotlinx-coroutines-core-jvm-1.6.4.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.material\material-ripple-desktop\1.4.1\4c42972aefc0908954af022d213e4c6d00daf288\material-ripple-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.material\material-icons-core-desktop\1.4.1\26323c8bdd56b7587adb49ccde9b54f6c6d4f66c\material-icons-core-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.skiko\skiko-awt-runtime-windows-x64\0.7.63\a1e930529804f43fff759466a08acdafcc8909a1\skiko-awt-runtime-windows-x64-0.7.63.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.compose.ui\ui-util-desktop\1.4.1\3c3db20f77732f5874778c90cb589aba74ca81f3\ui-util-desktop-1.4.1.jar;C:\Users\quenette1\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\atomicfu-jvm\0.17.0\d3d2e380b6ee28231118101d09ae6dd06a1db1cb\atomicfu-jvm-0.17.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 65011712                                  {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1038090240                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1038090240                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\PuTTY\;C:\Users\quenette1\AppData\Local\Microsoft\WindowsApps;C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\bin;;C:\Users\quenette1\AppData\Local\Programs\Git\cmd;C:\Users\quenette1\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=quenette1
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+TMP=C:\Users\QUENET~1\AppData\Local\Temp
+TEMP=C:\Users\QUENET~1\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.2546)
+OS uptime: 30 days 5:42 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xb4, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, rdtscp, f16c
+Processor Information for all 4 processors :
+  Max Mhz: 2208, Current Mhz: 2208, Mhz Limit: 2208
+
+Memory: 4k page, system-wide physical 3956M (189M free)
+TotalPageFile size 16244M (AvailPageFile size 4M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 47M, peak: 48M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.1+12-29) for windows-amd64 JRE (21.0.1+12-29), built on 2023-10-05T13:27:09Z by "mach5one" with MS VC++ 17.1 (VS2022)
+
+END.
