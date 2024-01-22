@@ -17,11 +17,9 @@ import Model.Model
 import androidx.compose.foundation.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
-import kotlin.system.exitProcess
 
 class HomeDisplay(private val parent : Home) : Display {
     private var deleteButtonPressed by mutableStateOf(false)

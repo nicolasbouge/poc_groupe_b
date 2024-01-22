@@ -1,7 +1,6 @@
 package Controller
 
 
-import androidx.compose.runtime.mutableStateOf
 import java.io.File
 
 object ParserController {
@@ -56,49 +55,52 @@ object ParserController {
         val regexClass = Regex("\\bclass\\s+([a-zA-Z_][a-zA-Z0-9_]*)")
         val regexVariable = Regex("^([a-zA-Z][a-zA-Z0-9_]*)\\s*(= |:\\s*[a-zA-Z][a-zA-Z0-9]* | [+]=)")
         val regexFunction = Regex("def\\s*([a-zA-Z]+[a-zA-Z0-9_]*)")
-        val regexParameter = Regex("")
 
         var classes: MutableList<MutableList<String>> = mutableListOf()
         var variables: MutableList<MutableList<String>> = mutableListOf()
         var functions: MutableList<MutableList<String>> = mutableListOf()
-        val parameters: MutableList<MutableList<String>> = mutableListOf() //TODO Récupéré les paramètres
+        val parameters: MutableList<MutableList<String>> = mutableListOf()
 
         fileContent.forEach { line ->
-            if (regexClass.find(line) != null) {
-                val newWord = mutableListOf(
-                    regexClass.find(line)?.groupValues?.get(1) ?: "",
-                   "1",
-                    "classe",
-                    file.name
-                )
-                classes.add(newWord)
-            } else if (regexVariable.find(line) != null) {
-                val newWord = mutableListOf(
-                    regexVariable.find(line)?.groupValues?.get(1) ?: "",
-                    "1",
-                    "variable",
-                    file.name
-                )
-                variables.add(newWord)
-            } else if (regexFunction.find(line) != null) {
-                val newFunction = mutableListOf(
-                    regexFunction.find(line)?.groupValues?.get(1) ?: "",
-                    "1",
-                    "fonction",
-                    file.name
-                )
-                functions.add(newFunction)
+            when {
+                regexClass.find(line) != null -> {
+                    val newWord = mutableListOf(
+                        regexClass.find(line)?.groupValues?.get(1) ?: "",
+                        "1",
+                        "classe",
+                        file.name
+                    )
+                    classes.add(newWord)
+                }
+                regexVariable.find(line) != null -> {
+                    val newWord = mutableListOf(
+                        regexVariable.find(line)?.groupValues?.get(1) ?: "",
+                        "1",
+                        "variable",
+                        file.name
+                    )
+                    variables.add(newWord)
+                }
+                regexFunction.find(line) != null -> {
+                    val newFunction = mutableListOf(
+                        regexFunction.find(line)?.groupValues?.get(1) ?: "",
+                        "1",
+                        "fonction",
+                        file.name
+                    )
+                    functions.add(newFunction)
+                }
             }
         }
 
-        classes = findDuplicate(classes, "classe")
-        variables = findDuplicate(variables, "var")
-        functions = findDuplicate(functions, "fun")
+        classes = findDuplicate(classes)
+        variables = findDuplicate(variables)
+        functions = findDuplicate(functions)
 
 
         return (classes + variables + parameters + functions).toMutableList()
     }
-    private fun findDuplicate(listTerms : MutableList<MutableList<String>>, name : String): MutableList<MutableList<String>> {
+    private fun findDuplicate(listTerms : MutableList<MutableList<String>>): MutableList<MutableList<String>> {
         /**Fonction qui permet d'augmenter le nombre d'occurence en fonction du nombre
          * de répétition d'un mot dans la liste*/
         val occurence = mutableMapOf<String, Int>()
@@ -137,14 +139,3 @@ object ParserController {
         return uniqueLists
     }
 }
-
-//Cadavre de la récupération de parametre
-//TODO Ressuciter le cadavre pour que l'on puisse récupéré les paramètres
-/*(\s*[a-zA-Z0-9_]+[a-zA-Z0-9_]*\s*(:\s*[a-zA-Z]+[a-zA-Z0-9_]*\s*)?([,]\s*[a-zA-Z]+[a-zA-Z0-9_]*\s*(:\s*[a-zA-Z]+[a-zA-Z0-9_]*\s*)?)*)**/
-/*
-        val newParameter = mutableListOf(
-            regexFunction.find(line)?.groupValues?.get(2) ?: "",
-            occurrenceNumber.toString(),
-            "parametre",
-            file.name
-        )*/

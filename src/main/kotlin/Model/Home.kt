@@ -2,11 +2,9 @@ package Model
 
 import Controller.HomeController
 import View.HomeDisplay
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import kotlinx.coroutines.flow.MutableStateFlow
 
 class Home(override var glossaryModelList: List<GlossaryModel>) : ViewInterface<HomeDisplay, HomeController> {
     override val viewIdentifier: Int = 0

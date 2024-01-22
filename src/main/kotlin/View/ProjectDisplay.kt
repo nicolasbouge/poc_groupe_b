@@ -10,7 +10,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,13 +20,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.system.exitProcess
 
+private const val termesTrouves = "Termes Trouvé"
 class ProjectDisplay (private val parent : Project): Display{
-    private var displayMode by mutableStateOf("Termes Trouvé")
+    private var displayMode by mutableStateOf(termesTrouves)
     private var matrixOfValues by mutableStateOf(mutableListOf(listOf("")))
     @Composable
     override fun main() {
         if (!parent.controller.glossarySelected && displayMode == "Comparaison" && parent.databaseModel.getGlossary().isNotEmpty()){
-            val glossaryChoosen = parent.controller.compareButtonClicked()
             println("choix du glossaire effectuén affichage de la table nécessaire")
             matrixOfValues = parent.controller.matrixOfValues
         }
@@ -81,7 +80,7 @@ class ProjectDisplay (private val parent : Project): Display{
                     }
                 }
                 displayModeButtons(Modifier.fillMaxWidth().padding(start = 16.dp))
-                if (displayMode == "Comparaison" || displayMode == "Termes Trouvé"){
+                if (displayMode == "Comparaison" || displayMode == termesTrouves){
                     TableView(
                         customModifier = Modifier.padding(16.dp).verticalScroll(rememberScrollState()),
                         boardValues = matrixOfValues,
@@ -94,7 +93,7 @@ class ProjectDisplay (private val parent : Project): Display{
     }
     @Composable
     private fun displayModeButtons(modifier : Modifier){
-        val listDisplayModeName = listOf("Termes Trouvé", "Comparaison", "Graphique")
+        val listDisplayModeName = listOf(termesTrouves, "Comparaison", "Graphique")
         Row (horizontalArrangement = Arrangement.Start, modifier = modifier){
             listDisplayModeName.forEach {
                 TextButton(onClick= {displayMode = it}){Text( it)}

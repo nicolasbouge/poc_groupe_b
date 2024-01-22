@@ -37,9 +37,9 @@ class GlossaryController(private val parent : Glossary) : Controller {
         return sameWord
     }
     @Composable
-    fun chooseName() : Boolean{
-        var visibility by remember { mutableStateOf(true) }
-        var alreadyExistError by remember { mutableStateOf(false) }
+        fun chooseName() : Boolean{
+            var visibility by remember { mutableStateOf(true) }
+            var alreadyExistError by remember { mutableStateOf(false) }
         var notCompleteForm by remember{ mutableStateOf(false) }
         if (visibility){
             AddDataDialog(
@@ -61,8 +61,8 @@ class GlossaryController(private val parent : Glossary) : Controller {
         if (alreadyExistError){
             ErrorWindow("Le mot existe déja", onDismiss = { alreadyExistError = false })
         }
-        if (notCompleteForm){
-            ErrorWindow("Vous devez renseigner les cases Terme et Contexte", onDismiss = { notCompleteForm = false })
+          if (notCompleteForm){
+                ErrorWindow("Vous devez renseigner les cases Terme et Contexte", onDismiss = { notCompleteForm = false })
         }
 
         return visibility

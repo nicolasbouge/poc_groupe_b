@@ -1,7 +1,6 @@
 package CustomComponent
 
 import Model.DatabaseModel
-import Model.WordModel
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -33,7 +32,6 @@ fun TableView(
     var deleteWord by remember{ mutableStateOf(false) }
     var editWord by remember{ mutableStateOf(false) }
     var selectedWord by remember { mutableStateOf(listOf<String>()) }
-    var error = false
     MaterialTheme {
         Column(
             modifier = customModifier
@@ -95,7 +93,7 @@ fun TableView(
                             if (deleteWord){
                                 AddDataDialog(
                                     onDismiss = {deleteWord = false},
-                                    onSave = {list ->
+                                    onSave = {_ ->
                                         deleteWord = false
                                         if (onDelete != null) {
                                             onDelete(selectedWord[termePosition], selectedWord[contextPosition])

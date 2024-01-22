@@ -2,9 +2,6 @@ package Model
 
 import Controller.GlossaryController
 import View.GlossaryDisplay
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import kotlinx.coroutines.flow.MutableStateFlow
 
 class Glossary(
     override val glossaryId: Int,

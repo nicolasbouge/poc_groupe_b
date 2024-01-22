@@ -118,7 +118,7 @@ class GlossaryDisplay(private val parent : Glossary) : Display {
                         terme, concept ->
                             val word = parent.databaseModel.getWord(terme,concept,parent.glossaryId)
                             if (word != null) {
-                                parent.databaseModel.deleteWord(parent.glossaryId, word.id_word)
+                                parent.databaseModel.deleteWord(parent.glossaryId, word.idWord)
                                 matrixValues = parent.databaseModel.getWordsAsMatrix(parent.glossaryId)
                                 glossaryWords = parent.databaseModel.getWordsAsMatrix(parent.glossaryId)
                             }

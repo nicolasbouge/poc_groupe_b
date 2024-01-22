@@ -3,6 +3,13 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
     kotlin("jvm")
     id("org.jetbrains.compose")
+    id("org.sonarqube") version "4.4.1.3373"
+}
+sonar {
+    properties {
+        property("sonar.projectKey", "POC_SAE_COMPOSE_GROUPE_B")
+        property("sonar.host.url", "http://localhost:9000")
+    }
 }
 
 group = "com.example"
@@ -14,6 +21,8 @@ repositories {
     google()
 }
 
+val sqliteVersion = "3.43.2.2"
+
 dependencies {
     // Note, if you develop a library, you should use compose.desktop.common.
     // compose.desktop.currentOs should be used in launcher-sourceSet
@@ -22,7 +31,7 @@ dependencies {
     implementation(compose.desktop.currentOs)
     implementation(compose.foundation)
     implementation(compose.animation)
-    implementation("org.xerial:sqlite-jdbc:3.43.2.2")
+    implementation("org.xerial:sqlite-jdbc:$sqliteVersion")
 
 }
 

@@ -6,7 +6,6 @@ import Model.GlossaryModel
 import Model.Home
 import Model.Model
 import Model.ProjectModel
-import androidx.compose.material.AlertDialog
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text

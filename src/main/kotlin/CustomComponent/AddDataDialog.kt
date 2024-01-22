@@ -1,7 +1,5 @@
 package CustomComponent
 
-import Model.WordModel
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 

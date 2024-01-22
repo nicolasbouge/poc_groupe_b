@@ -290,8 +290,8 @@ class DatabaseModel {
             val resultSet = statement.executeQuery()
             if (resultSet.next()){
                 val glossaryName = resultSet.getString("name")
-                val id_glossary = resultSet.getInt("id_glossary")
-                glossary = GlossaryModel(id_glossary, glossaryName)
+                val idGlossary = resultSet.getInt("id_glossary")
+                glossary = GlossaryModel(idGlossary, glossaryName)
                 return glossary
             }
             statement.execute()
@@ -305,8 +305,6 @@ class DatabaseModel {
     fun updateWord(wordModel: WordModel, oldWord : WordModel) {
         /**Permet de modifier un mot déjà présent dans la BDD
          * Nécessite le mot*/
-        //TODO modifier le paramètre de vérification de la requête pour que ça soit
-        // l'if du projet et du mot et non un label
         val connection = this.connection
 
         try {
@@ -409,7 +407,7 @@ class DatabaseModel {
             val resultSet = preparedStatement.executeQuery()
 
             if (resultSet.next()) {
-                val id_word = resultSet.getInt("id_word")
+                val idWord = resultSet.getInt("id_word")
                 val label = resultSet.getString("label")
                 val definition = resultSet.getString("definition")
                 val context = resultSet.getString("context")
@@ -418,7 +416,7 @@ class DatabaseModel {
                 val liaison = resultSet.getString("link_to")
 
                 //Retourne le mot si jamais il a été trouvé
-                return WordModel(glossaryId,id_word, label, definition, context, synonyme, antonyme, liaison)
+                return WordModel(glossaryId,idWord, label, definition, context, synonyme, antonyme, liaison)
             }
         } catch (e: Exception) {
             e.printStackTrace()
