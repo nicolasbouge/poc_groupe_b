@@ -16,12 +16,12 @@ object ParserController {
     }
 
     // Replace this function with your own text extraction logic
-    private fun extractTextFromFile(file: File): MutableList<MutableList<String>> {
+    fun extractTextFromFile(file: File): MutableList<MutableList<String>> {
         var newfile = deleteCommentInPythonFile(file)
         newfile = deleteDocstringInPythonFile(newfile)
         return parsePythonFile(newfile)
     }
-    private fun deleteCommentInPythonFile(file : File): File {
+    fun deleteCommentInPythonFile(file : File): File {
         val lines = file.readLines()
         val withoutCommentLines = mutableListOf<String>()
 
@@ -32,11 +32,11 @@ object ParserController {
             }
         }
 
-        val withoutCommentFile = File("parsedFile/${file.nameWithoutExtension}")
+        val withoutCommentFile = File(file.nameWithoutExtension)
         withoutCommentFile.writeText(withoutCommentLines.joinToString("\n"))
         return withoutCommentFile
     }
-    private fun deleteDocstringInPythonFile(file : File): File {
+    fun deleteDocstringInPythonFile(file : File): File {
 
         var text = file.readText()
         val docstringPattern = Regex("(\"\"\"(.*?)\"\"\")", RegexOption.DOT_MATCHES_ALL)
@@ -45,7 +45,7 @@ object ParserController {
         for (match in matches){
             text = text.replace(match.value, "")
         }
-        val withoutDocstringFile = File("parsedFile/${file.nameWithoutExtension}")
+        val withoutDocstringFile = File(file.nameWithoutExtension)
         withoutDocstringFile.writeText(text)
         return withoutDocstringFile
     }

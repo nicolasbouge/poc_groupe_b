@@ -32,6 +32,11 @@ dependencies {
     implementation(compose.foundation)
     implementation(compose.animation)
     implementation("org.xerial:sqlite-jdbc:$sqliteVersion")
+    implementation("org.xerial:sqlite-jdbc:3.43.2.2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.21")
+    testImplementation("junit:junit:4.13.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
 }
 
