@@ -1,15 +1,10 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
     id("org.jetbrains.compose")
     id("org.sonarqube") version "4.4.1.3373"
-}
-sonar {
-    properties {
-        property("sonar.projectKey", "POC_SAE_COMPOSE_GROUPE_B")
-        property("sonar.host.url", "http://localhost:9000")
-    }
 }
 
 group = "com.example"
@@ -20,6 +15,15 @@ repositories {
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     google()
 }
+tasks.withType<JavaCompile> {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
 
 val sqliteVersion = "3.43.2.2"
 

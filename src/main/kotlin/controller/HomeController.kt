@@ -16,7 +16,7 @@ import kotlin.system.exitProcess
 
 class HomeController(private val parent : Home) : Controller{
     var currentView by mutableStateOf(parent.viewIdentifier)
-    var projectMode by mutableStateOf(false)
+    var project_mode by mutableStateOf(false)
     val numberOfButtonPerRow = 8
 
     fun createMatrix(): MutableList<out List<Model>> {
@@ -61,7 +61,11 @@ class HomeController(private val parent : Home) : Controller{
         }
         parent.databaseModel.addProject(nameAlreadyExistVerification(name, "Project"), selectedFiles)
         parent.projectList = parent.databaseModel.getProject()
-        fileDialog.dispose()
+        try{
+            fileDialog.dispose()
+        } catch (e : Exception){
+            println("Une erreur est survenue lors de la fermeture de la fenêtre de sélection de fichier")
+        }
     }
     private fun deleteProject(selectedProjects : MutableList<Int>){
         selectedProjects.forEach { projectId ->
