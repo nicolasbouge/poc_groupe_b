@@ -37,35 +37,51 @@ class GlossaryController(private val parent : Glossary) : Controller {
         return sameWord
     }
     @Composable
-        fun chooseName() : Boolean{
-            var visibility by remember { mutableStateOf(true) }
-            var alreadyExistError by remember { mutableStateOf(false) }
+    fun chooseName() : Boolean{
+        var visibility by remember { mutableStateOf(true) }
+        var alreadyExistError by remember { mutableStateOf(false) }
         var notCompleteForm by remember{ mutableStateOf(false) }
         if (visibility){
             AddDataDialog(
                 onDismiss = {visibility = false},
                 onSave = {word ->
-                    if (word.value.isNotEmpty()){
-                        if (word.value[0].isNotBlank() && word.value[2].isNotBlank()){
-                            alreadyExistError = addWord(word.value)
-                            if(!alreadyExistError){
-                                visibility=false
-                            }
-                        }else{notCompleteForm = true}
+                    alreadyExistError = checkWordExistence(word)
+                    notCompleteForm = checkFormCompletion(word)
+                    if(!alreadyExistError && !notCompleteForm){
+                        visibility=false
                     }
                 },
                 choosenContent = { AddWordForm(listOf("Terme", "Définition", "Contexte", "Synonyme", "Antonyme", "Lié à")) },
                 choosenTitle = { Text("Ajout d'un nouveau terme") }
             )
         }
-        if (alreadyExistError){
-            ErrorWindow("Le mot existe déja", onDismiss = { alreadyExistError = false })
-        }
-          if (notCompleteForm){
-                ErrorWindow("Vous devez renseigner les cases Terme et Contexte", onDismiss = { notCompleteForm = false })
-        }
+        displayErrorWindow(alreadyExistError, "Le mot existe déja", { alreadyExistError = false })
+        displayErrorWindow(notCompleteForm, "Vous devez renseigner les cases Terme et Contexte", { notCompleteForm = false })
 
         return visibility
+    }
+
+    private fun checkWordExistence(word: MutableState<List<String>>): Boolean {
+        return if (word.value.isNotEmpty()){
+            if (word.value[0].isNotBlank() && word.value[2].isNotBlank()){
+                addWord(word.value)
+            }else{
+                false
+            }
+        } else {
+            false
+        }
+    }
+
+    private fun checkFormCompletion(word: MutableState<List<String>>): Boolean {
+        return word.value[0].isBlank() || word.value[2].isBlank()
+    }
+
+    @Composable
+    private fun displayErrorWindow(errorState: Boolean, errorMessage: String, onDismiss: () -> Unit) {
+        if (errorState){
+            ErrorWindow(errorMessage, onDismiss = onDismiss)
+        }
     }
 
     fun getWords() : MutableList<List<String>>{
