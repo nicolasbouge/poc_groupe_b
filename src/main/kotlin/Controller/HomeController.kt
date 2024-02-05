@@ -1,7 +1,6 @@
 package Controller
 
 import CustomComponent.AddDataDialog
-import CustomComponent.AddWordForm
 import Model.GlossaryModel
 import Model.Home
 import Model.Model
@@ -128,39 +127,55 @@ class HomeController(private val parent : Home) : Controller{
             AddDataDialog(
                 onDismiss = {visibility = false},
                 onSave = {name ->
-                    if (name.value[0].isNotBlank()){
-                        println(name.value[0])
+                    if(isNameNotBlank(name)){
                         if (projectMode){
-                            addProject(name.value[0])
-                            updateListProject(parent.projectList)
+                            handleProjectMode(name)
                         }
                         else{
-                            addGlossary(name.value[0])
-                            updateListGlossary(parent.glossaryModelList)
+                            handleGlossaryMode(name)
                         }
                         visibility = false
                     }
                 },
-                choosenContent = {
-                    if (projectMode){
-                        AddWordForm(listOf("Veuillez saisir le nom du projet"))
-                    }else{
-                        AddWordForm(listOf("Veuillez saisir le nom du glossaire"))
-                    }
-
-                },
-                choosenTitle = {
-                    if (projectMode){
-                        Text("Ajouter un projet")
-                    }else{
-                        Text("Ajouter un glossaire")
-                    }
-
-                }
+                choosenContent = { getChoosenContent() },
+                choosenTitle = { getChoosenTitle() }
             )
         }
         return visibility
     }
+
+    private fun isNameNotBlank(name: MutableState<List<String>>): Boolean {
+        return name.value[0].isNotBlank()
+    }
+
+    private fun handleProjectMode(name: MutableState<List<String>>) {
+        addProject(name.value[0])
+        updateListProject(parent.projectList)
+    }
+
+    private fun handleGlossaryMode(name: MutableState<List<String>>) {
+        addGlossary(name.value[0])
+        updateListGlossary(parent.glossaryModelList)
+    }
+
+    @Composable
+    private fun getChoosenContent(): List<String> {
+        return if (projectMode){
+            listOf("Veuillez saisir le nom du projet")
+        }else{
+            listOf("Veuillez saisir le nom du glossaire")
+        }
+    }
+
+    @Composable
+    private fun getChoosenTitle(): @Composable () -> Unit {
+        return if (projectMode){
+            { Text("Ajouter un projet") }
+        }else{
+            { Text("Ajouter un glossaire") }
+        }
+    }
+
     @Composable
     fun changeColor(projectMode : Boolean) : ButtonColors{
         return if (projectMode){
