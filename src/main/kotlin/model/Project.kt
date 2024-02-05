@@ -1,7 +1,7 @@
-package Model
+package model
 
-import Controller.ProjectController
-import View.ProjectDisplay
+import controller.ProjectController
+import view.ProjectDisplay
 
 class Project(override val glossaryModelList: List<GlossaryModel>, override val projectId: Int) : ViewInterface<ProjectDisplay, ProjectController> {
     override val glossaryId: Int? = null

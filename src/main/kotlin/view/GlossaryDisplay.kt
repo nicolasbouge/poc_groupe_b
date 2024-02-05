@@ -1,7 +1,7 @@
-package View
+package view
 
-import Model.Glossary
-import CustomComponent.*
+import model.Glossary
+import customComponent.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,7 +17,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import BoardValues
 
 class GlossaryDisplay(private val parent : Glossary) : Display {
     @OptIn(ExperimentalComposeUiApi::class)

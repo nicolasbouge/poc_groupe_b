@@ -1,6 +1,6 @@
 package main
 
-import Controller.ParserController
+import controller.ParserController
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import org.junit.Test

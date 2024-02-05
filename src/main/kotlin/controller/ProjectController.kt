@@ -1,8 +1,8 @@
-package Controller
+package controller
 
-import CustomComponent.AddDataDialog
-import Model.GlossaryModel
-import Model.Project
+import customComponent.AddDataDialog
+import model.GlossaryModel
+import model.Project
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.text.BasicTextField

@@ -1,7 +1,7 @@
-package Model
+package model
 
-import Controller.GlossaryController
-import View.GlossaryDisplay
+import controller.GlossaryController
+import view.GlossaryDisplay
 
 class Glossary(
     override val glossaryId: Int,

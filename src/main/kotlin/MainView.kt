@@ -1,6 +1,6 @@
-import Controller.NavigationController
-import Model.DatabaseModel
-import Model.GlossaryModel
+import controller.NavigationController
+import model.DatabaseModel
+import model.GlossaryModel
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*

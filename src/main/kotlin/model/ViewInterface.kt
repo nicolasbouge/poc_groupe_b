@@ -1,7 +1,7 @@
-package Model
+package model
 
-import Controller.Controller
-import View.Display
+import controller.Controller
+import view.Display
 
 interface ViewInterface<AnyDisplay : Display, AnyController : Controller> {
     val viewIdentifier : Int

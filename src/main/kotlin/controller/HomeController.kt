@@ -1,10 +1,10 @@
-package Controller
+package controller
 
-import CustomComponent.AddDataDialog
-import Model.GlossaryModel
-import Model.Home
-import Model.Model
-import Model.ProjectModel
+import customComponent.AddDataDialog
+import model.GlossaryModel
+import model.Home
+import model.Model
+import model.ProjectModel
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text

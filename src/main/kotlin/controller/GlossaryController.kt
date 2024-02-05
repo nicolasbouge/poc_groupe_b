@@ -1,12 +1,12 @@
-package Controller
+package controller
 
-import Model.WordModel
-import Model.Glossary
-import BoardValues
-import CustomComponent.AddDataDialog
-import CustomComponent.AddWordForm
-import CustomComponent.ErrorWindow
-import CustomComponent.databaseModel
+import model.WordModel
+import model.Glossary
+import view.BoardValues
+import customComponent.AddDataDialog
+import customComponent.AddWordForm
+import customComponent.ErrorWindow
+import customComponent.databaseModel
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 

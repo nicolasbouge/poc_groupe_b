@@ -1,4 +1,4 @@
-package CustomComponent
+package customComponent
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*

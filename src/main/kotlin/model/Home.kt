@@ -1,7 +1,7 @@
-package Model
+package model
 
-import Controller.HomeController
-import View.HomeDisplay
+import controller.HomeController
+import view.HomeDisplay
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue

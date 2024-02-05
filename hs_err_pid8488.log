@@ -740,7 +740,7 @@ Environment Variables:
 PATH=C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\PuTTY\;C:\Users\quenette1\AppData\Local\Microsoft\WindowsApps;C:\Users\quenette1\AppData\Local\JetBrains\IntelliJ IDEA 2023.2.3\bin;;C:\Users\quenette1\AppData\Local\Programs\Git\cmd;C:\Users\quenette1\AppData\Local\Programs\Microsoft VS Code\bin
 USERNAME=quenette1
 OS=Windows_NT
-PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+PROCESSOR_IDENTIFIER=Intel64 Family 6 model 142 Stepping 10, GenuineIntel
 TMP=C:\Users\QUENET~1\AppData\Local\Temp
 TEMP=C:\Users\QUENET~1\AppData\Local\Temp
 

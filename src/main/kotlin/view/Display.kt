@@ -1,4 +1,4 @@
-package View
+package view
 
 import androidx.compose.runtime.Composable
 

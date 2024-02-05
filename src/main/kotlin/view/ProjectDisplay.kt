@@ -1,8 +1,7 @@
-package View
+package view
 
-import BoardValues
-import CustomComponent.*
-import Model.Project
+import customComponent.*
+import model.Project
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

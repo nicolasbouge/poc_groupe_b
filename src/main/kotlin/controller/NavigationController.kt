@@ -1,9 +1,9 @@
-package Controller
+package controller
 
-import Model.GlossaryModel
-import Model.Home
-import Model.Glossary
-import Model.Project
+import model.GlossaryModel
+import model.Home
+import model.Glossary
+import model.Project
 import androidx.compose.runtime.Composable
 
 class NavigationController() : Controller {
