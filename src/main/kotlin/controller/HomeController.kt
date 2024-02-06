@@ -14,9 +14,9 @@ import java.awt.FileDialog
 import java.awt.Frame
 import kotlin.system.exitProcess
 
-class HomeController(private val parent : Home) : Controller{
+class HomeController(val parent : Home) : Controller{
     var currentView by mutableStateOf(parent.viewIdentifier)
-    var project_mode by mutableStateOf(false)
+    var projectMode by mutableStateOf(false)
     val numberOfButtonPerRow = 8
 
     fun createMatrix(): MutableList<out List<Model>> {
@@ -32,7 +32,7 @@ class HomeController(private val parent : Home) : Controller{
             }
         return chunkedList
     }
-    private fun addGlossary(name : String){
+    fun addGlossary(name : String){
         parent.databaseModel.addGlossary(nameAlreadyExistVerification(name, "Glossary"))
         parent.glossaryModelList = parent.databaseModel.getGlossary()
     }
@@ -51,7 +51,7 @@ class HomeController(private val parent : Home) : Controller{
         }
         return listTextButton
     }
-    private fun addProject(name : String){
+    fun addProject(name : String){
         val fileDialog = FileDialog(Frame(), "Sélectionner des fichiers", FileDialog.LOAD)
         fileDialog.isMultipleMode = true
         fileDialog.isVisible = true
@@ -67,21 +67,21 @@ class HomeController(private val parent : Home) : Controller{
             println("Une erreur est survenue lors de la fermeture de la fenêtre de sélection de fichier")
         }
     }
-    private fun deleteProject(selectedProjects : MutableList<Int>){
+    fun deleteProject(selectedProjects : MutableList<Int>){
         selectedProjects.forEach { projectId ->
             parent.databaseModel.deleteProject(projectId)
         }
         parent.controller.updateListProject(parent.databaseModel.getProject())
     }
-    private fun updateListGlossary(newList : List<GlossaryModel>){
+    fun updateListGlossary(newList : List<GlossaryModel>){
         parent.mutableListGlossary = newList
         parent.glossaryModelList = parent.mutableListGlossary
     }
-    private fun updateListProject(newList : List<ProjectModel>){
+    fun updateListProject(newList : List<ProjectModel>){
         parent.mutableListProject = newList
         parent.projectList = parent.mutableListProject
     }
-    private fun nameAlreadyExistVerification(newProjectName : String, type : String) : String{
+    fun nameAlreadyExistVerification(newProjectName : String, type : String) : String{
         var modelList : List<Model>? = null
         when(type){
             "Project" -> modelList = parent.projectList
@@ -100,7 +100,7 @@ class HomeController(private val parent : Home) : Controller{
         }
         return newProjectName
     }
-    private fun deleteGlossary(selectedGlossary : MutableList<Int>){
+    fun deleteGlossary(selectedGlossary : MutableList<Int>){
         selectedGlossary.forEach { glossaryId ->
             parent.databaseModel.deleteGlossary(glossaryId)
         }
@@ -148,11 +148,11 @@ class HomeController(private val parent : Home) : Controller{
         return visibility
     }
 
-    private fun isNameNotBlank(name: MutableState<List<String>>): Boolean {
+    fun isNameNotBlank(name: MutableState<List<String>>): Boolean {
         return name.value[0].isNotBlank()
     }
 
-    private fun handleProjectMode(name: MutableState<List<String>>) {
+    fun handleProjectMode(name: MutableState<List<String>>) {
         addProject(name.value[0])
         updateListProject(parent.projectList)
     }
@@ -163,7 +163,7 @@ class HomeController(private val parent : Home) : Controller{
     }
 
     @Composable
-    private fun getChoosenContent(): List<String> {
+    fun getChoosenContent(): List<String> {
         return if (projectMode){
             listOf("Veuillez saisir le nom du projet")
         }else{
